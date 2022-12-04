@@ -1,22 +1,28 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "rtisan/connect",
+    "version": "1.0.0",
+    "description": "This package provides a simple way to connect your Laravel application to the Rtisan API.",
     "keywords": [
-        ":vendor_name",
+        "rtisan",
         "laravel",
-        ":package_slug"
+        "rtisan-connect",
+        "lang",
+        "translate",
+        "localization"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://getrtisan.com",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
+            "name": "Jordan Sitbon",
+            "email": "hello@getrtisan.com",
+            "role": "Founder"
         }
     ],
     "require": {
+        "ext-zip": "*",
         "php": "^8.1",
+        "illuminate/http": "^9.19",
         "spatie/laravel-package-tools": "^1.13.0",
         "illuminate/contracts": "^9.0"
     },
@@ -35,13 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Rtisan\\Connect\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Rtisan\\Connect\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,11 +66,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RtisanConnectServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "RtisanConnect"
-            }
+                "Rtisan\\Connect\\RtisanConnectServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

@@ -1,10 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Rtisan\Connect;
 
+use Illuminate\View\Compilers\BladeCompiler;
+use Rtisan\Connect\Commands\RtisanDownloadCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\RtisanCommand;
+use Rtisan\Connect\Commands\RtisanUploadCommand;
 
 class RtisanConnectServiceProvider extends PackageServiceProvider
 {
@@ -16,8 +18,9 @@ class RtisanConnectServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('rtisan')
+            ->name('rtisan-connect')
             ->hasConfigFile()
-            ->hasCommand(RtisanCommand::class);
+            ->hasCommand(RtisanUploadCommand::class)
+            ->hasCommand(RtisanDownloadCommand::class);
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Rtisan\Connect\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\RtisanConnectServiceProvider;
+use Rtisan\Connect\RtisanConnectServiceProvider;
 
 class TestCase extends Orchestra
 {
