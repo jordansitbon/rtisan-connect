@@ -1,92 +1,72 @@
-# :package_description
+# Rtisan Connect
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/run-tests?label=tests)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jordansitbon/rtisan-connect.svg?style=flat-square)](https://packagist.org/packages/jordansitbon/rtisan-connect)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/jordansitbon/rtisan-connect/run-tests?label=tests)](https://github.com/jordansitbon/rtisan-connect/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/jordansitbon/rtisan-connect/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/jordansitbon/rtisan-connect/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/jordansitbon/rtisan-connect.svg?style=flat-square)](https://packagist.org/packages/jordansitbon/rtisan-connect)
 <!--delete-->
+
 ---
-This repo can be used to scaffold a Laravel package. Follow these steps to get started:
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
+This repo can be used to connect Rtisan to your Laravel application.
+<!--delete-->
+
 ---
-<!--/delete-->
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
+
+For use Rtisan Connect you need to sign up for a Rtisan account and create a new project.
+After project creation, you can generate the Connect Token with clicking on the " ⚡️ " button.
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag=":package_slug-migrations"
-php artisan migrate
+composer require jordansitbon/rtisan-connect
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag=":package_slug-config"
+php artisan vendor:publish --tag="rtisan-connect-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    'token' => env('RTISAN_CONNECT_TOKEN'),
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag=":package_slug-views"
 ```
 
 ## Usage
 
-```php
-$variable = new Rtisan\Connect();
-echo $variable->echoPhrase('Hello, VendorName!');
-```
-
-## Testing
+To upload your language files to Rtisan, you can use the `rtisan:upload` command:
 
 ```bash
-composer test
+php artisan rtisan:upload
 ```
 
-## Changelog
+To download the language files from Rtisan to your app, you can use the `rtisan:download` command:
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+```bash
+php artisan rtisan:download
+```
 
-## Contributing
+[//]: # (## Changelog)
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+[//]: # (Please see [CHANGELOG]&#40;CHANGELOG.md&#41; for more information on what has changed recently.)
 
-## Security Vulnerabilities
+[//]: # (## Contributing)
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+[//]: # (Please see [CONTRIBUTING]&#40;CONTRIBUTING.md&#41; for details.)
+
+[//]: # (## Security Vulnerabilities)
+
+[//]: # (Please review [our security policy]&#40;../../security/policy&#41; on how to report security vulnerabilities.)
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+- [Jordan Sitbon](https://github.com/jordansitbon)
 
 ## License
 
