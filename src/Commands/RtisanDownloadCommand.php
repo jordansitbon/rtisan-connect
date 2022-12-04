@@ -3,7 +3,6 @@
 namespace Rtisan\Connect\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
 use Rtisan\Connect\RtisanConnect;
 
 class RtisanDownloadCommand extends Command
@@ -14,7 +13,7 @@ class RtisanDownloadCommand extends Command
 
     public function handle(): int
     {
-        if (!config('rtisan-connect.token', false)) {
+        if (! config('rtisan-connect.token', false)) {
             $this->error('Please set your Rtisan token in .env file.');
             $this->error('You can find your token on your Rtisan project page.');
 

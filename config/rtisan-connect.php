@@ -2,6 +2,6 @@
 
 return [
 
-    'token' => env('RTISAN_CONNECT_TOKEN')
+    'token' => env('RTISAN_CONNECT_TOKEN'),
 
 ];

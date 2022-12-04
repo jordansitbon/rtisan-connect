@@ -84,7 +84,7 @@ function remove_prefix(string $prefix, string $content): string
 
 function remove_composer_deps(array $names)
 {
-    $data = json_decode(file_get_contents(__DIR__ . '/composer.json'), true);
+    $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['require-dev'] as $name => $version) {
         if (in_array($name, $names, true)) {
@@ -92,12 +92,12 @@ function remove_composer_deps(array $names)
         }
     }
 
-    file_put_contents(__DIR__ . '/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
 function remove_composer_script($scriptName)
 {
-    $data = json_decode(file_get_contents(__DIR__ . '/composer.json'), true);
+    $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['scripts'] as $name => $script) {
         if ($scriptName === $name) {
@@ -106,7 +106,7 @@ function remove_composer_script($scriptName)
         }
     }
 
-    file_put_contents(__DIR__ . '/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
 function remove_readme_paragraphs(string $file): void
@@ -229,14 +229,14 @@ foreach ($files as $file) {
 }
 
 if (! $useLaravelPint) {
-    safeUnlink(__DIR__ . '/.github/workflows/fix-php-code-style-issues.yml');
+    safeUnlink(__DIR__.'/.github/workflows/fix-php-code-style-issues.yml');
     safeUnlink(__DIR__.'/pint.json');
 }
 
 if (! $usePhpStan) {
-    safeUnlink(__DIR__ . '/phpstan.neon.dist');
-    safeUnlink(__DIR__ . '/phpstan-baseline.neon');
-    safeUnlink(__DIR__ . '/.github/workflows/phpstan.yml');
+    safeUnlink(__DIR__.'/phpstan.neon.dist');
+    safeUnlink(__DIR__.'/phpstan-baseline.neon');
+    safeUnlink(__DIR__.'/.github/workflows/phpstan.yml');
 
     remove_composer_deps([
         'phpstan/extension-installer',
@@ -249,8 +249,8 @@ if (! $usePhpStan) {
 }
 
 if (! $useDependabot) {
-    safeUnlink(__DIR__ . '/.github/dependabot.yml');
-    safeUnlink(__DIR__ . '/.github/workflows/dependabot-auto-merge.yml');
+    safeUnlink(__DIR__.'/.github/dependabot.yml');
+    safeUnlink(__DIR__.'/.github/workflows/dependabot-auto-merge.yml');
 }
 
 if (! $useLaravelRay) {
@@ -258,7 +258,7 @@ if (! $useLaravelRay) {
 }
 
 if (! $useUpdateChangelogWorkflow) {
-    safeUnlink(__DIR__ . '/.github/workflows/update-changelog.yml');
+    safeUnlink(__DIR__.'/.github/workflows/update-changelog.yml');
 }
 
 confirm('Execute `composer install` and run tests?') && run('composer install && composer test');

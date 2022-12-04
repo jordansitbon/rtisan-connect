@@ -2,11 +2,10 @@
 
 namespace Rtisan\Connect;
 
-use Illuminate\View\Compilers\BladeCompiler;
 use Rtisan\Connect\Commands\RtisanDownloadCommand;
+use Rtisan\Connect\Commands\RtisanUploadCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Rtisan\Connect\Commands\RtisanUploadCommand;
 
 class RtisanConnectServiceProvider extends PackageServiceProvider
 {

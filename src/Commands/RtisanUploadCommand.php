@@ -14,7 +14,7 @@ class RtisanUploadCommand extends Command
 
     public function handle(): int
     {
-        if (!config('rtisan-connect.token', false)) {
+        if (! config('rtisan-connect.token', false)) {
             $this->error('Please set your Rtisan token in .env file.');
             $this->error('You can find your token on your Rtisan project page.');
 
