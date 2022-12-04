@@ -1,5 +1,5 @@
 <?php
 
-it('can test', function () {
-    expect(true)->toBeTrue();
+it('can connect', function () {
+    expect(\VendorName\Skeleton\Facades\RtisanConnect::tryConnect())->toBeTrue();
 });
