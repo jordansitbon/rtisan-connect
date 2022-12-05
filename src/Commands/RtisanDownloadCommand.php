@@ -24,8 +24,9 @@ class RtisanDownloadCommand extends Command
         $zip_path = storage_path('app/rtisan-connect/download.zip');
         $file = \File::put($zip_path, file_get_contents('https://getrtisan.com/api/projects/connect/lang/'.$token));
 
-        $this->info('Zip current language files to ...');
-        RtisanConnect::zipDirectory(lang_path(), 'app/rtisan-connect/old-lang.'.now()->format('Ymd-His').'.zip');
+        $old_zip_path = 'app/rtisan-connect/old-lang.'.now()->format('Ymd-His').'.zip';
+        $this->info('Zip current language files to "/storage/'.$old_zip_path.'" ...');
+        RtisanConnect::zipDirectory(lang_path(), $old_zip_path);
 
         \File::deleteDirectory(lang_path());
 
