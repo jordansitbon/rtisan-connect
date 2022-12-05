@@ -1,6 +1,5 @@
 {
     "name": "jordansitbon/rtisan-connect",
-    "version": "1.0.0",
     "description": "This package provides a simple way to connect your Laravel application to the Rtisan API.",
     "keywords": [
         "rtisan",
