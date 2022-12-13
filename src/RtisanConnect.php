@@ -4,6 +4,8 @@ namespace Rtisan\Connect;
 
 class RtisanConnect
 {
+    public const BASE_URL = 'https://get-rtisan.com';
+
     public static function zipDirectory($dir, $path): string
     {
         $files = \File::allFiles($dir);

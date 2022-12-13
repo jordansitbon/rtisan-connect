@@ -30,7 +30,7 @@ class RtisanDownloadCommand extends Command
         $this->info('Download ZIP file from Rtisan...');
         $token = config('rtisan-connect.token');
         $zip_path = storage_path('app/rtisan-connect/download.zip');
-        \File::put($zip_path, file_get_contents('https://getrtisan.com/api/projects/connect/lang/'.$token));
+        \File::put($zip_path, file_get_contents(RtisanConnect::BASE_URL.'/api/projects/connect/lang/'.$token));
 
         $this->info('Extracting ZIP file...');
         $zip = new \ZipArchive();

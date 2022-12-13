@@ -27,7 +27,7 @@ class RtisanUploadCommand extends Command
         $this->info('Send zip file to Rtisan...');
         $token = config('rtisan-connect.token');
         $request = Http::attach('file', file_get_contents($zip_path), 'rtisan-connect.zip')
-            ->post('https://getrtisan.com/api/projects/connect/lang/'.$token);
+            ->post(RtisanConnect::BASE_URL.'/api/projects/connect/lang/'.$token);
 
         $this->info('Cleaning up...');
         \File::delete($zip_path);
