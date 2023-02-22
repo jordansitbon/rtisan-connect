@@ -33,7 +33,7 @@ class RtisanUploadCommand extends Command
         $this->info('Cleaning up...');
         File::delete($zip_path);
 
-        if (!$request->successful()) {
+        if (! $request->successful()) {
             $this->error('Something went wrong.');
 
             return self::FAILURE;
