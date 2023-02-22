@@ -3,6 +3,7 @@
 namespace Rtisan\Connect\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Rtisan\Connect\RtisanConnect;
 
@@ -30,16 +31,25 @@ class RtisanUploadCommand extends Command
             ->post(RtisanConnect::BASE_URL.'/api/projects/connect/lang/'.$token);
 
         $this->info('Cleaning up...');
-        \File::delete($zip_path);
+        File::delete($zip_path);
 
-        if ($request->successful()) {
-            $this->info('Language files uploaded successfully.');
-
-            return self::SUCCESS;
-        } else {
+        if (!$request->successful()) {
             $this->error('Something went wrong.');
 
             return self::FAILURE;
         }
+
+        $json = $request->json();
+
+        if (data_get($json, 'ok') === false) {
+            $this->error('Something went wrong: ');
+            $this->error(data_get($json, 'message'));
+
+            return self::FAILURE;
+        }
+
+        $this->info('Language files uploaded successfully.');
+
+        return self::SUCCESS;
     }
 }
